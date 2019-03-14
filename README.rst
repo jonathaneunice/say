@@ -3,23 +3,23 @@
 
 .. |version| image:: http://img.shields.io/pypi/v/say.svg?style=flat
     :alt: PyPI Package latest release
-    :target: https://pypi.python.org/pypi/say
+    :target: https://pypi.org/project/say
 
 .. |versions| image:: https://img.shields.io/pypi/pyversions/say.svg
     :alt: Supported versions
-    :target: https://pypi.python.org/pypi/say
+    :target: https://pypi.org/project/say
 
 .. |impls| image:: https://img.shields.io/pypi/implementation/say.svg
     :alt: Supported implementations
-    :target: https://pypi.python.org/pypi/say
+    :target: https://pypi.org/project/say
 
 .. |wheel| image:: https://img.shields.io/pypi/wheel/say.svg
     :alt: Wheel packaging support
-    :target: https://pypi.python.org/pypi/say
+    :target: https://pypi.org/project/say
 
 .. |coverage| image:: https://img.shields.io/badge/test_coverage-97%25-blue.svg
     :alt: Test line coverage
-    :target: https://pypi.python.org/pypi/say
+    :target: https://pypi.org/project/say
 
 
 It's been *almost fifty years* since ``C`` introduced ``printf()`` and the basic
