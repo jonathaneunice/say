@@ -14,6 +14,12 @@
     Tweaked docs. Refreshed dependencies. Tweaked tests. Coverage increased
     by 1%.
 
+    Official support has been removed for Python 3.3 and 3.4 because of problems
+    properly installing dependencies in the testing environment. Say may work
+    on those platforms (it has historically), but regular testing can't verify
+    that. (Also, Python 3.7 is now widely available, and is great. Upgrade if
+    at all possible!)
+
 -
   version: 1.6.5
   date: January 17, 2018
