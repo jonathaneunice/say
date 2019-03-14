@@ -1,9 +1,32 @@
 Change Log
 ==========
 
+**1.6.7**  (March 14, 2019)
+
+    Reworked "prefixers" into more sustainable design that supports
+    both "oneshot" and "multi-shot" variants.  A one-shot continues
+    operating indefinitely (e.g. line numbering for an entire
+    document) while multi-shot are reset to their starting position
+    each time ``say`` is called (for example for numbering multiple
+    examples).
+
+    Removed arbitrary encodings (e.g. base64) as target of underlying
+    I/O engine. Too complicated, and the main point.
+
+    Tweaked docs. Refreshed dependencies. Tweaked tests. Coverage
+    increased by 1%.
+
+    Official support has been removed for Python 3.3 and 3.4 because
+    of problems properly installing dependencies in the testing
+    environment. Say may work on those platforms (it has
+    historically), but regular testing can't verify that. (Also,
+    Python 3.7 is now widely available, and is great. Upgrade if at
+    all possible!)
+
+
 **1.6.5**  (January 17, 2018)
 
-    Added new ``f`` aliast to ``fmt`` as compatibility shim / polyfill
+    Added new ``f`` alias to ``fmt`` as compatibility shim / polyfill
     for users moving toward Python 3.6+ f-strings, but who have to
     support prior versions.
 
@@ -67,10 +90,10 @@ Change Log
     Updated mechanism for method-specific option setting. Still work
     in progress, but code now much cleaner.
 
-    The experimental operator form of ``say``  ``>`` has been
-    withdrawn. The operator style isn't consonant with Python
-    philosophy, complicated the code base, and only partially worked.
-    Interesting idea, but experience suggests not worth the trouble.
+    The experimental operator form of ``say`` has been withdrawn. The
+    operator style isn't consonant with Python philosophy, complicated
+    the code base, and only partially worked. Interesting idea, but
+    experience suggests not worth the trouble.
 
 
 **1.5.0**  (May 14, 2017)
@@ -102,8 +125,8 @@ Change Log
     packaged for, and tested against, all late-model versions of
     Python: 2.6, 2.7, 3.3, 3.4, 3.5, and 3.6, as well as PyPy 5.6.0
     (based on 2.7.12) and PyPy3 5.5.0 (based on 3.3.5). Python 3.2
-    removed from official  support; no longer a current version of
-    Python and not  well-supported by testing matrix.
+    removed from official support; no longer a current version of
+    Python and not well-supported by testing matrix.
 
 
 **1.4.2**  (September 15, 2015)
@@ -283,7 +306,7 @@ Change Log
     ``README.rst`` now an abridged version/teaser for the module.
 
 
-**1.0**  (September 17, 2013)
+**1.0**  (September 14, 2013)
 
     Cleaned up source for better PEP8 conformance
 

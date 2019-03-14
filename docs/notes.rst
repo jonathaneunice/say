@@ -12,10 +12,12 @@ Notes
   Packaging linting with `pyroma <https://pypi.org/project/pyroma>`_.
 
 * Successfully packaged for, and tested against, all late-model versions of
-  Python: 2.6, 2.7, 3.3, 3.4, 3.5, 3.6, and 3.7 as well as
-  late models of PyPy and PyPy3.
+  Python: 2.7, 3.5, 3.6, and 3.7 as well as late models of PyPy and PyPy3. It
+  may work on Python 2.6 and earlier builds of 3.x (it did historically), but
+  testing can no longer verify that. Also, those are such old Python builds!
+  Upgrade to 3.7 or later ASAP!
 
-* ``say`` has greater ambitions than just simple template printing. It's
+* ``say`` has greater ambitions than just simple template prßinting. It's
   part of a larger rethinking of how output should be formatted.
   ``say.Text``, `show <http://pypi.org/project/show>`_, and `quoter
   <http://pypi.org/project/quoter>`_ are other down-payments on this
