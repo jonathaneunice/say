@@ -1,5 +1,5 @@
-recursive-include .ipynb_checkpoints *
 include CHANGES.yml
+include requirements.txt
 recursive-include docs *.rst *.py
 include README.rst
 recursive-include say *.py
