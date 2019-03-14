@@ -11,16 +11,23 @@ generally make your life much eaiser.
 ``say()`` and ``fmt()`` try to avoid encoding gotchas by working with
 Unicode strings.
 
-In Python 3, all strings are Unicode strings, and all files are inherently smart
-enough to read and write to reasonable encodings needed to store Unicode strings
-on disk. But in Python 2, there is a choice between ``str`` and ``unicode``, and
-most files are *not* smart enough to use rational encodings. Indeed, files that
-appear to have an ``encoding`` attribute will not let you set that attribute,
-and they will not enforce that encoding when doing file IO. *!@#$%^&!!!*
+In Python 3, all strings are Unicode strings, and all files and I/O streams are
+inherently smart enough to read and write to reasonable encodings needed to
+store Unicode on disk. But in Python 2, there is a choice between ``str`` and
+``unicode``, and most files are *not* smart enough to use rational encodings.
+Indeed, files that appear to have an ``encoding`` attribute will not let you set
+that attribute, and they will not enforce that encoding when doing file IO.
+*!@#$%^&!!!*
 
 So if you must use Python 2:
 
+* Seriously reconsider what led you to this point. Work to upgrade to modern
+  Python (e.g. 3.7+) ASAP.
+
 * Use ``unicode`` strings whenever possible.
+
+* Seriously consider ``from __future__ import unicode_literals`` to automate
+  the upleveling of string literals to Unicode.
 
 * If you use the basie ``str`` type, include *only* ASCII characters, not
   encoded bytes from UTF-8 or whatever. If you don't do this, any trouble results
@@ -42,7 +49,9 @@ back-bends to support auto-encoding have been withdrawn. If you choose to use
 Python 2, *you* are responsible for opening files in a responsible,
 encoding-friendly way.::
 
+    from __future__ import unicode_literals
     from codecs import open
 
+    contents = u'Contains\u2012Unicode!'
     with open('outfile.txt', 'w', encoding='utf-8') as f:
-        say(u'Contains\u2012Unicode!', file=f)
+        say(contents, file=f)

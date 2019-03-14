@@ -15,7 +15,7 @@ def lines(text):
 
 setup(
     name='say',
-    version='1.6.5',
+    version='1.6.6',
     author='Jonathan Eunice',
     author_email='jonathan.eunice@gmail.com',
     description='print and format on steroids',

@@ -1,8 +1,24 @@
 -
+  version: 1.6.7
+  date: March 14, 2019
+  notes: >
+    Reworked "prefixers" into more sustainable design that supports both
+    "oneshot" and "multi-shot" variants.  A one-shot continues operating
+    indefinitely (e.g. line numbering for an entire document) while multi-shot
+    are reset to their starting position each time ``say`` is called (for
+    example for numbering multiple examples).
+
+    Removed arbitrary encodings (e.g. base64) as target of underlying I/O
+    engine. Too complicated, and the main point.
+
+    Tweaked docs. Refreshed dependencies. Tweaked tests. Coverage increased
+    by 1%.
+
+-
   version: 1.6.5
   date: January 17, 2018
   notes: >
-    Added new ``f`` aliast to ``fmt`` as compatibility shim / polyfill
+    Added new ``f`` alias to ``fmt`` as compatibility shim / polyfill
     for users moving toward Python 3.6+ f-strings, but who have to support
     prior versions.
 
@@ -14,13 +30,13 @@
     of CSS color names and hex notations, in addition to the traditional
     small set of ANSI color names.  So ``say('this', style='peachpuff')``
     or ``say('this', style='#663399')`` to your heart's content!
-    
+
     A future release will be needed to extend color name parsing to other
     notations such as ANSI numeric and CSS ``rgb()`` spcs.
-    
+
     Also fixed a bug when wrapping, ANSI colors, and colored prefixes
     are used together.
-    
+
 -
   version: 1.6.3
   date: May 26, 2017
@@ -29,14 +45,13 @@
     formatting features, but does NOT interpolate variable
     expressions in braces. Useful for managing pre-formatted text which might
     contain expressions without the need for escaping.
-    
+
     Updated Python 2/3 compatibility strategy to be Python 3-centric. Retired
     _PY3 flag for _PY2 flag, as Python 3 is now the default assumption.
     That we now exclude 2.x with x < 6 and 3.x with x < 3 helps greatly.
     2.6 and 2.7 make great reaches forward toward 3.x, and 3.3 started to
-    make strong reaches backwards. 
-    
-    
+    make strong reaches backwards.
+
 -
   version: 1.6.1
   date: May 23, 2017
@@ -46,7 +61,7 @@
     bumped only slightly, but this marks a substantial advance in ability
     to manage colored/styled text in a "just works" way, which is the
     original premise of the package.
-    
+
 -
   version: 1.6.0
   date: May 19, 2017
@@ -57,13 +72,13 @@
     thing with respect to ``sys.stdout``. But for arbitrary files that you
     open, make sure they're properly encoded. Use ``codecs.open`` or ``io.open``
     for that.
-    
+
     Reorganized some code. Added and reinstated tests. Bumped coverage
     +1%, to 97%.
-    
+
     Added ``file`` parameter to ``say()``, to make 1:1 compatible with
     Python 3's native ``print()``.
-    
+
 -
   version: 1.6.1
   date: May 15, 2017
@@ -71,11 +86,10 @@
     Updated mechanism for method-specific option setting.
     Still work in progress, but code now much cleaner.
 
-    The experimental operator form of ``say`` 
-    ``>`` has been withdrawn. The operator
-    style isn't consonant with Python philosophy, complicated
-    the code base, and only partially worked. Interesting idea,
-    but experience suggests not worth the trouble.
+    The experimental operator form of ``say`` has been withdrawn. The operator
+    style isn't consonant with Python philosophy, complicated the code base, and
+    only partially worked. Interesting idea, but experience suggests not worth
+    the trouble.
 
 -
   version: 1.5.0
@@ -85,8 +99,8 @@
     and ``sep`` methods because discovered it was conflating
     and interfering with the ``sep`` parameter in the main
     options.  The horizontal separator character that is
-    repeated N times is now addressed as ``char``. 
-    
+    repeated N times is now addressed as ``char``.
+
 -
   version: 1.4.5
   date: March 22, 2017
@@ -103,7 +117,7 @@
     Fixed problem with Unicode stream handling under Python 2. It
     has slipped under the testing radar, given too many mocks and
     not enough full-out integration testing. Oops!
-    
+
 -
   version: 1.4.3
   date: January 23, 2017
@@ -112,10 +126,10 @@
     versions. Successfully packaged for, and
     tested against, all late-model versions of Python: 2.6, 2.7, 3.3,
     3.4, 3.5, and 3.6, as well as PyPy 5.6.0 (based on
-    2.7.12) and PyPy3 5.5.0 (based on 3.3.5). Python 3.2 removed from official 
-    support; no longer a current version of Python and not 
+    2.7.12) and PyPy3 5.5.0 (based on 3.3.5). Python 3.2 removed from official
+    support; no longer a current version of Python and not
     well-supported by testing matrix.
-    
+
 -
   version: 1.4.2
   date: September 15, 2015
@@ -131,7 +145,7 @@
     This is a first delivery on what will become a general feature over
     the next few releases. Added vertical spacing to ``title`` and ``sep``
     methods for nicer layouts.
-    
+
     Increased testing line coverage to 96%, improving several routines'
     robustness in the process.
 -
@@ -164,11 +178,11 @@
   date: August 16, 2015
   notes: >
     Added ``sep`` method for separators.
-    
+
     Some code cleanups and a few additional tests.å
-    
+
     Officially switched to YAML-format Change Log (``CHANGES.yml``)
-    
+
 -
   date: August 12, 2015
   notes: Code cleanups.
@@ -294,4 +308,4 @@
     (which don''t seem to understand 0.401 is a lesser version that 0.5, because 401
     > 5).'
   version: '1.0'
-  
+

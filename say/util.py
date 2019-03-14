@@ -45,49 +45,6 @@ def opened(f):
     return f
 
 
-def encoded(u, encoding):
-    """
-    Encode string u (denoting it is expected to be in Unicode) if there's
-    encoding to be done. Tries to mask the difference between Python 2 and 3,
-    which have different models of string processing, and different codec APIs
-    and quirks. Some Python 3 encoders further require ``bytes`` in, not
-    ``str``. These are first encoded into utf-8, encoded, then decoded.
-    """
-    if not encoding:
-        return u
-    elif _PY2:
-        # Python 2 may not have the best handling of Unicode, but by
-        # by God its encode operations are straightforward!
-        return u.encode(encoding)
-    else: # PY3
-        encoder = getencoder(encoding)
-        try:
-            return encoder(u)[0]
-        except TypeError: # needs bytes, not str
-            try:
-                ub = u.encode('utf-8') # to bytes
-                ube = encoder(ub)[0]
-                # return strings
-                if isinstance(ube, bytes):
-                    return ube.decode('utf-8')
-                else:
-                    return ube
-            except Exception as e:
-                raise e
-
-
-        # NB PY3 requires lower-level interface for many codecs. s.encode('utf-8')
-        # works fine, but others do not. Some codecs convert bytes to bytes,
-        # and are not properly looked up by nickname (e.g. 'base64'). These are
-        # managed by first encoding into utf-8, then if it makes sense decoding
-        # back into a string. The others are things like bz2 and zlib--binary
-        # encodings that have little use to us here.
-
-        # There are also be some slight variations in results that will make
-        # testing more fun. Possibly related to adding or not adding a terminal
-        # newline.
-
-
 def flatten(*args):
     """
     Like itertools.chain(), but will pretend that single scalar values are

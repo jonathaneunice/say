@@ -31,39 +31,6 @@ def test_opened():
     raise NotImplementedError('TBD')
 
 
-def test_encoded():
-
-    tests = {
-        ('this', None): 'this',
-        ('this', 'utf-8'): six.b('this'),
-        (six.u('this'), 'utf-8'): six.b('this'),
-        (six.u('this\u2012and'), 'utf-8'): six.b('this\xe2\x80\x92and'),
-        (six.u('this\u2012and'), None): six.u('this\u2012and'),
-    }
-
-    for data, answer in tests.items():
-        (text, encoding) = data
-        assert encoded(text, encoding) == answer
-
-
-@pytest.mark.skipif('sys.version_info[:2] == (3,3)')
-def test_encoded2():
-
-    # Currently fail this test on py33 and py34. Seems to relate to a routine
-    # that previously accepted strings only accepting bytes in py33 or later.
-    # Only affects encodings that are byte-oriented, such as base64. Not
-    # clear if makes sense to continue supporting them.
-
-    tests = {
-        (six.u('this-and'), 'base64'): 'dGhpcy1hbmQ=\n',
-        (six.u('this-and'), 'base-64'): 'dGhpcy1hbmQ=\n',
-    }
-
-    for data, answer in tests.items():
-        (text, encoding) = data
-        assert encoded(text, encoding) == answer
-
-
 def test_flatten(*args):
 
     tests = [

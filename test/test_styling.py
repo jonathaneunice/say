@@ -63,9 +63,11 @@ def test_styled():
     assert color('test', fg='green', bg='red', style='bold') == styled('test', 'bold|green|red')
     assert color('test', fg='green', bg='red', style='bold') == styled('test', 'bold,green,red')
 
+
 def test_bad_styledef():
     with pytest.raises(ValueError):
         styledef('red+blue+green')
+
 
 def test_in_or_out():
     fmt = Fmt()

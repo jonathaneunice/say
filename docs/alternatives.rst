@@ -1,6 +1,15 @@
 Alternatives
 ============
 
+* f-strings. As of Python 3.6, Python finally has formatted strings
+  that are in-place interpolated. Thank you, `PEP 498
+  <https://www.python.org/dev/peps/pep-0498/>`_. Some decades after Perl, PHP,
+  Ruby, et al, but *bravo!* nonetheless. In many cases, if all you need are
+  interplated strings, f-strings are grand. Just one of many reasons to upgrade
+  to the latest modern Python builds. Sadly, f-strings lack the easy coloring,
+  wrapping, and other formatting functions ``say`` builds in. But f-strings are
+  quite compatible with ``say``, so feel free to use them together.
+
 * `ScopeFormatter <http://pypi.python.org/pypi/ScopeFormatter>`_
   provides variable interpolation into strings. It is amazingly
   compact and elegant. Sadly, it only interpolates Python names, not full
@@ -28,7 +37,3 @@ Alternatives
   interpolation code seems gratuitous. Simpler::
 
       say("Hello, {name}!")
-
-* In the future, `PEP 498 <https://www.python.org/dev/peps/pep-0498/>`_
-  may provided some of the auto-formatting of literal strings that 
-  ``say`` does now. 

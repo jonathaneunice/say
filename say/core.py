@@ -300,7 +300,7 @@ class Say(object):
         and opts.return_strip_newline.
         """
         ret_encoding = opts.encoding if opts.return_encoded is True else opts.encoded
-        ret_encoded = encoded(outstr, ret_encoding)
+        ret_encoded = outstr.encode(ret_encoding) if ret_encoding else outstr
         if opts.return_strip_newline:
             ret_encoded = ret_encoded[:-1] if ret_encoded.endswith('\n') else ret_encoded
         return ret_encoded
@@ -358,6 +358,10 @@ class Say(object):
         """
         Construct the output string and write it to files.
         """
+        if opts.prefix and hasattr(opts.prefix, 'reset'):
+            opts.prefix.reset()
+        if opts.suffix and hasattr(opts.suffix, 'reset'):
+            opts.suffix.reset()
         if opts.silent:
             return
         else:

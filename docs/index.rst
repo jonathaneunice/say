@@ -17,9 +17,8 @@ Python *finally* provided in Python 3.6. In addition:
   Python 2 or Python 3.
 * A companion ``fmt()`` object for string formatting.
 * Higher-order line formatting such as line numbering,
-  indentation, and line-wrapping built in. You can get substantially
-  better output
-  formatting with almost no additional code.
+  indentation, and line-wrapping built in. You can get substantially better
+  output formatting with almost no additional code.
 * Convenient methods for common formatting items such as titles, horizontal
   separators, and vertical whitespace.
 * Easy styled output, including ANSI colors and user-defined styles

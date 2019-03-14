@@ -115,6 +115,7 @@ def test_unicode():
     too = "too"
     assert say(six.u("Unicode templates {too}")) == six.u("Unicode templates too")
 
+
 def test_format_string():
     say = Fmt()
 
@@ -122,6 +123,13 @@ def test_format_string():
     assert say("{x} is floating point!") == '33.123456789 is floating point!'
     assert say("{x:0.2f} is shorter") == '33.12 is shorter'
     assert say("{x:8.3f} is in the middle") == '  33.123 is in the middle'
+
+
+def test_inside_styles():
+    say = Fmt()
+    x = 1214
+    assert say('{x}', style='blue') == say('{x:style=blue}')
+    assert say('{x}', style='blue') == say('{x:style="blue"}')
 
 
 def test_files(capsys, tmpdir):

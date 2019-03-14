@@ -16,10 +16,10 @@ QUOTE_DELIM_STR = ''.join(QUOTE_DELIM)
 
 def parse_color(c):
     """
-    Shim between ansicolors.parse_rgb and previous expecations.
-    Handles neither int nor rgb(x,y,z) specs correctly, not so
-    much because of this code, but because of expecations above
-    in way style args are parsed, or values handed back.
+    Shim between ansicolors.parse_rgb and previous expectations. Handles valid
+    HTML color names and hex specs (e.g. #ffc823) properly, but not rgb(x,y,z)
+    specs--not because of this code, but because of how style arguments are
+    parsed upstream.
     """
     if c in COLORS:
         return c
@@ -29,13 +29,9 @@ def parse_color(c):
             return rgb
     except ValueError:
         pass
-    try:
-        c = int(c)
-        if 0 <= c <= 255:
-            return c
-    except Exception:
-        pass
     return None
+
+    # FIXME: correctly pass in / parse rgb(x,y,x) color specs
 
 
 class Relative(int):
@@ -56,10 +52,9 @@ class Relative(int):
 
 
 class optdict(dict):
-
     """
-    dict subclass that only initializes those keys where there's a non-empty value.
-    Convenient for creating kwarg dicts that don't have to define default values.
+    dict subclass that only initializes keys corresponding to non-empty value.
+    Convenient for kwarg dicts that don't have to define default values.
     """
     def __init__(self, **kwargs):
         dict.__init__(self)
@@ -119,7 +114,7 @@ def styledef(*args, **kwargs):
                     raise ValueError('only fg and bg colors!')
             elif p in STYLES:
                 styles.append(p)
-            else:
+            else:                           # pragma: no cover
                 raise ValueError("Well! That's odd! {!r}".format(p))
         kw.update(optdict(fg=fg, bg=bg, style='|'.join(styles) if styles else None))
     kw.update(kwargs)

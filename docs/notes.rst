@@ -5,24 +5,24 @@ Notes
   but the similarity stops there.
 
 * Automated multi-version testing managed with the wonderful
-  `pytest <http://pypi.python.org/pypi/pytest>`_,
-  `pytest-cov <http://pypi.python.org/pypi/pytest-cov>`_,
-  `coverage <http://pypi.python.org/pypi/coverage>`_,
-  and `tox <http://pypi.python.org/pypi/tox>`_.
-  Packaging linting with `pyroma <https://pypi.python.org/pypi/pyroma>`_.
+  `pytest <http://pypi.org/project/pytest>`_,
+  `pytest-cov <http://pypi.org/project/pytest-cov>`_,
+  `coverage <http://pypi.org/project/coverage>`_,
+  and `tox <http://pypi.org/project/tox>`_.
+  Packaging linting with `pyroma <https://pypi.org/project/pyroma>`_.
 
 * Successfully packaged for, and tested against, all late-model versions of
-  Python: 2.6, 2.7, 3.3, 3.4, 3.5, and 3.6 as well as
+  Python: 2.6, 2.7, 3.3, 3.4, 3.5, 3.6, and 3.7 as well as
   late models of PyPy and PyPy3.
 
 * ``say`` has greater ambitions than just simple template printing. It's
   part of a larger rethinking of how output should be formatted.
-  ``say.Text``, `show <http://pypi.python.org/pypi/show>`_, and `quoter
-  <http://pypi.python.org/pypi/quoter>`_ are other down-payments on this
+  ``say.Text``, `show <http://pypi.org/project/show>`_, and `quoter
+  <http://pypi.org/project/quoter>`_ are other down-payments on this
   larger vision. Stay tuned.
 
 * In addition to being a practical module in its own right, ``say`` is
-  testbed for `options <http://pypi.python.org/pypi/options>`_, a package
+  testbed for `options <http://pypi.org/project/options>`_, a package
   that provides high-flexibility option, configuration, and parameter
   management.
 

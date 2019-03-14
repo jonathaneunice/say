@@ -10,7 +10,7 @@ ANSI terminal colors and styles are automagically supported.
 
     say("The answer is {answer:style=bold+red}")
 
-This uses the `ansicolors <https://pypi.python.org/pypi/ansicolors>`_
+This uses the `ansicolors <https://pypi.org/project/ansicolors>`_
 module, though with a slightly more permissive syntax. Available colors are
 'black', 'blue', 'cyan', 'green', 'magenta', 'red', 'white', and 'yellow'.
 Available styles are 'bold', 'italic', 'underline', 'blink', 'blink2',
@@ -27,7 +27,6 @@ You can define your own styles::
 Because styles are defined through executables (lambdas, usually), they can
 include decisions or text transformations of arbitrary complexity.
 For example::
-
 
     say.style(redwarn=lambda n: color(n, fg='red', style='bold') if int(n) < 0 else n)
     ...
